@@ -22,8 +22,8 @@
     <meta property="og:url" content="">
     <meta property="og:site_name" content="ShopyShoes">
 
-    <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 
     <body>
@@ -35,9 +35,9 @@
 
         <ul id="navbar">
             <li><a href="index.html">Home</a></li>
-            <li><a href="#">Products</a></li>
+            <li><a href="products.html">Products</a></li>
             <li><a href="http://github.com/adriib38" target="_blank">Contact</a></li>
-            <li class="right"><a href="#"><img src="svg\cart.svg" alt=""></a></li>
+            <li class="right"><a href="cart.html"><img src="svg\cart.svg" alt=""></a></li>
         </ul>
 
         <main>
@@ -104,14 +104,26 @@
                 <div id="order-summary">
                     <h3>Order summary</h3>
                     <br>
-                    <p>Subtotal: 0.0030 BTC</p>
-                    <p>Total: 0.0032 BTC</p>
+                    <div style="display: flex; justify-content: space-between;">
+                        <p>Subtotal:</p>
+                        <p>0.0030 BTC</p>
+                        <p>76€</p>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between;">
+                        <p>Total (21%):</p>
+                        <p>0.0032 BTC</p>
+                        <p>80€</p>
+                    </div>
 
                     <form>
                         <h4>Shipping Address</h4>
                         <br>
                         <label for="direction">Address</label>
                         <textarea type="text" placeholder="City, Street 51º, 12..." required></textarea>
+                    
+                        <label for="email">Email address</label>
+                        <input type="email" placeholder="name@mail.com" required>
 
                         <label for="country">Country</label>
                         <select>
@@ -122,12 +134,26 @@
                         </select>
                     </form>
 
+          
                     <select id="select-payment-method">
-                        <option value="none" selected disabled hidden>Choose payment method</option>
-                        <option value="cc">Credit card</option>
+                        <option selected value="cc">Credit card</option>
                         <option value="BTC">BTC</option>
                     </select>
-                    <form>
+
+                    <form id="form-bitcoin">
+                        <h4>Payment details</h4>
+                        <br>
+                        <label for="bitcoin-address">Send 0.0032 BTC to the following address:</label>
+                        <br>
+                        <input type="text" id="bitcoin-address" value="1XXXXXXXXXXXXXXXXXX9" readonly>
+                        <div id="payments-methods-imgs">
+                            <img src="img\logo-btc.png" alt="Visa" title="BTC" width="25px">
+                        </div>
+                        <input type="submit" value="Paid">
+           
+                    </form>
+
+                    <form id="form-credit-card">
                         <h4>Payment details</h4>
                         <br>
                         <label for="card-number">Card number</label>
@@ -158,5 +184,6 @@
             ShopyShoes - fictitious project for educational purposes. More info at <a href="https://github.com/adriib38" target="_blank">GitHub</a>.
         </footer>
 
+        <script src="js\cart.js"></script>
     </body>
 </html>

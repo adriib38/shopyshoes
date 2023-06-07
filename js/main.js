@@ -30,3 +30,52 @@ window.onload = function() {
     setInterval(actualizarContador, 1000);
 }
     
+//====
+//Add product to cart popup
+//====
+const msgNotification = document.getElementById('msg-notification');
+const btns_addToCart = document.querySelectorAll('.btn-add-to-cart');
+btns_addToCart.forEach(btn => {
+    btn.addEventListener('click', () => {
+        showNotification();
+    });
+}); 
+
+function showNotification() {
+    msgNotification.classList.add('show');
+    setTimeout(() => {
+        msgNotification.classList.remove('show');
+    }, 2000);
+}
+
+//====
+//Add ONE product to cart animation
+//====
+const img_addCircle = document.querySelectorAll('.add-circle');
+img_addCircle.forEach(img => {
+    img.addEventListener('click', () => {
+
+        let cardProduct = img.parentElement.parentElement;
+
+        cardProduct.classList.add('add-one-cart');
+        setTimeout(() => {
+            cardProduct.classList.remove('add-one-cart');
+        }, 2000);
+    });
+});
+
+//====
+//Remove ONE product to cart animation
+//====
+const img_removeCircle = document.querySelectorAll('.remove-circle');
+img_removeCircle.forEach(img => {
+    img.addEventListener('click', () => {
+
+        let cardProduct = img.parentElement.parentElement;
+
+        cardProduct.classList.add('remove-one-cart');
+        setTimeout(() => {
+            cardProduct.classList.remove('remove-one-cart');
+        }, 2000);
+    });
+});
