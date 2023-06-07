@@ -1,23 +1,52 @@
-class Product {
-    constructor(name, color, price) {
-        this.name = name;
-        this.color = color;
-        this.price = price;
-    }
+//====
+//Add product to cart popup
+//====
+const msgNotification = document.getElementById('msg-notification');
+const btns_addToCart = document.querySelectorAll('.btn-add-to-cart');
+btns_addToCart.forEach(btn => {
+    btn.addEventListener('click', () => {
+        showNotification();
+    });
+}); 
+
+function showNotification() {
+    msgNotification.classList.add('show');
+    setTimeout(() => {
+        msgNotification.classList.remove('show');
+    }, 2000);
 }
 
-let p1 = new Product("Shoes Pro Max", "Black", 0.030);
-let p2 = new Product("Shoes Pro Max 2", "White", 0.090);
-let p3 = new Product("Mart", "Red", 0.050);
-let p4 = new Product("Saturn", "Blue", 0.070);
-let p5 = new Product("Shoes Pro Max 3", "Green", 0.080);
-let p6 = new Product("Nepal", "Yellow", 0.060);
-let p7 = new Product("Infinity", "Orange", 0.040);
-let p8 = new Product("AirMap", "Purple", 0.020);
-let p9 = new Product("AirMap 2", "Pink", 0.010);
-let p10 = new Product("Nature", "Brown", 0.100);
+//====
+//Add ONE product to cart animation
+//====
+const img_addCircle = document.querySelectorAll('.add-circle');
+img_addCircle.forEach(img => {
+    img.addEventListener('click', () => {
 
-let products = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10];
+        let cardProduct = img.parentElement.parentElement;
+
+        cardProduct.classList.add('add-one-cart');
+        setTimeout(() => {
+            cardProduct.classList.remove('add-one-cart');
+        }, 2000);
+    });
+});
+
+//====
+//Remove ONE product to cart animation
+//====
+const img_removeCircle = document.querySelectorAll('.remove-circle');
+img_removeCircle.forEach(img => {
+    img.addEventListener('click', () => {
+
+        let cardProduct = img.parentElement.parentElement;
+
+        cardProduct.classList.add('remove-one-cart');
+        setTimeout(() => {
+            cardProduct.classList.remove('remove-one-cart');
+        }, 2000);
+    });
+});
 
 const input_filterProduct = document.getElementById("input-filter-product");
 const box_deckProducts = document.getElementById("deck-products");   
