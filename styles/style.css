@@ -106,12 +106,15 @@ main {
     align-items: center;
     justify-content: center;
     gap: 20px;
+
+    padding: 10px;
 }
 
 #main-banner p {
     font-family: serif;
-    font-size: 60px;
+    font-size: 4vw;
     font-weight: 800;
+    overflow: hidden;
 }
 
 .banner {
