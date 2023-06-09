@@ -48,6 +48,9 @@ img_removeCircle.forEach(img => {
     });
 });
 
+//====
+//Filter products by name
+//====
 const input_filterProduct = document.getElementById("input-filter-product");
 const box_deckProducts = document.getElementById("deck-products");   
 
@@ -61,6 +64,42 @@ input_filterProduct.addEventListener("keyup", function () {
             article.style.display = "";
         } else {
             article.style.display = "none";
+        }
+    }
+});
+
+
+//====
+//Filter products by price
+//====
+const range_price = document.getElementById("range-price");
+const box_porductsPrice = document.querySelectorAll(".product-price");
+const box_maxPrice = document.getElementById("max-price");
+let prices = [];
+box_porductsPrice.forEach(product => {
+    let price = product.innerText;
+    let priceBTC= price.replace("BTC", "");
+    prices.push(priceBTC);
+    
+});
+
+let mostExpensive = Math.max.apply(Math, prices);
+let cheapest = Math.min.apply(Math, prices);
+
+range_price.min = cheapest;
+range_price.max = mostExpensive;
+range_price.value = mostExpensive;
+range_price.step = 0.0001;
+
+range_price.addEventListener("change", function () {
+    box_maxPrice.innerText = range_price.value + " BTC";
+    for (i = 0; i < box_porductsPrice.length; i++) {
+        let price = box_porductsPrice[i].innerText;
+        let priceBTC= price.replace("BTC", "");
+        if (priceBTC <= range_price.value) {
+            box_porductsPrice[i].parentElement.style.display = "";
+        } else {
+            box_porductsPrice[i].parentElement.style.display = "none";
         }
     }
 });

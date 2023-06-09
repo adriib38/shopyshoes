@@ -1,4 +1,7 @@
+
+//====
 //Summer discount countdown
+//====
 const fechaFinal = new Date('7/01/2023 00:00:01');
 
 const cajaDias = document.getElementById('sd-box-days');
@@ -30,3 +33,49 @@ window.onload = function() {
     setInterval(actualizarContador, 1000);
 }
     
+//====
+//Add ONE product to cart animation
+//====
+const img_addCircle = document.querySelectorAll('.add-circle');
+img_addCircle.forEach(img => {
+    img.addEventListener('click', () => {
+
+        let cardProduct = img.parentElement.parentElement;
+
+        cardProduct.classList.add('add-one-cart');
+        setTimeout(() => {
+            cardProduct.classList.remove('add-one-cart');
+        }, 2000);
+    });
+});
+
+//====
+//Remove ONE product to cart animation
+//====
+const img_removeCircle = document.querySelectorAll('.remove-circle');
+img_removeCircle.forEach(img => {
+    img.addEventListener('click', () => {
+
+        let cardProduct = img.parentElement.parentElement;
+
+        cardProduct.classList.add('remove-one-cart');
+        setTimeout(() => {
+            cardProduct.classList.remove('remove-one-cart');
+        }, 2000);
+    });
+});
+
+console.log(
+    ' __ _                       __ _                      \n' +
+    '/ _\\ |__   ___  _ __  _   _/ _\\ |__   ___   ___  ___  \n' +
+    '\\ \\| \'_ \\ / _ \\| \'_ \\| | | \\ \\| \'_ \\ / _ \\ / _ \\/ __| \n' +
+    '_\\ \\ | | | (_) | |_) | |_| |\\ \\ | | | (_) |  __/\\__ \\ \n' +
+    '\\__/ |_| |_|\\___/| .__/ \\__, \\__/_| |_|\\___/ \\___||___/ \n' +
+    '                  |_|    |___/                           '
+);
+
+console.log('----------------------------------------');
+
+console.log('https://github.com/adriib38');
+console.log('https://github.com/adriib38');
+console.log('https://github.com/adriib38');
